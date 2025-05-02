@@ -115,12 +115,12 @@ hiphase \
 
 ## Filter PASS Variants within Region-of-Interest\
 ```
-singularity run -B $PWD bcftools_v1.21.sif \
+singularity run -B $PWD -B $REFS bcftools_v1.21.sif \
 	bcftools view -R $REFS/PKD1.exons.bed -f PASS \
 	05_SAMPLE.dv.phased.vcf.gz \
 	-o 06_SAMPLE.dv.phased.pass.vcf.gz -Oz
 
-singularity run -B $PWD bcftools_v1.21.sif \
+singularity run -B $PWD -B $REFS bcftools_v1.21.sif \
 	bcftools view -R $REFS/PKD1.exons.bed -f PASS \
 	05_SAMPLE.sawfish.phased.vcf.gz \
 	-o 06_SAMPLE.sawfish.phased.pass.vcf.gz -Oz
